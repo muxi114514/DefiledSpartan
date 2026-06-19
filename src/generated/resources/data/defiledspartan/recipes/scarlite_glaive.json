@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "spartanweaponry:type_disabled",
+      "disabled": [
+        "glaive"
+      ]
+    }
+  ],
+  "group": "spartanweaponry:glaive",
+  "key": {
+    "#": {
+      "tag": "c:gems/scarlite"
+    },
+    "/": {
+      "item": "spartanweaponry:pole"
+    }
+  },
+  "pattern": [
+    " #",
+    " #",
+    " /"
+  ],
+  "result": {
+    "item": "defiledspartan:scarlite_glaive"
+  }
+}

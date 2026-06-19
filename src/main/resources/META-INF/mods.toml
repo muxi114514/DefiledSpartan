@@ -1,0 +1,46 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT License"
+
+[[mods]]
+modId="defiledspartan"
+version="1.0.0"
+displayName="Defiled Spartan"
+logoFile="logo.png"
+authors="krelox"
+description='''Spartan Weaponry compatibility for Defiled Lands.'''
+
+[[dependencies.defiledspartan]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.defiledspartan]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.defiledspartan]]
+    modId="spartanweaponry"
+    mandatory=true
+    versionRange="[3.2.1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.defiledspartan]]
+    modId="spartantoolkit"
+    mandatory=true
+    versionRange="[1.6.1,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.defiledspartan]]
+    modId="defiledlands"
+    mandatory=true
+    versionRange="[1.9,)"
+    ordering="NONE"
+    side="BOTH"

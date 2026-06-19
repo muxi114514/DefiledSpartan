@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "spartanweaponry:type_disabled",
+      "disabled": [
+        "dagger"
+      ]
+    }
+  ],
+  "group": "spartanweaponry:dagger",
+  "key": {
+    "#": {
+      "tag": "c:gems/scarlite"
+    },
+    "|": {
+      "tag": "spartanweaponry:handles"
+    }
+  },
+  "pattern": [
+    "#",
+    "|"
+  ],
+  "result": {
+    "item": "defiledspartan:scarlite_dagger"
+  }
+}

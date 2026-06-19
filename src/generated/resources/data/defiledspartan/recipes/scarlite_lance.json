@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "spartanweaponry:type_disabled",
+      "disabled": [
+        "lance"
+      ]
+    }
+  ],
+  "group": "spartanweaponry:lance",
+  "key": {
+    "#": {
+      "tag": "c:gems/scarlite"
+    },
+    "/": {
+      "item": "spartanweaponry:pole"
+    },
+    "|": {
+      "item": "spartanweaponry:handle"
+    }
+  },
+  "pattern": [
+    "  #",
+    "#/ ",
+    "|# "
+  ],
+  "result": {
+    "item": "defiledspartan:scarlite_lance"
+  }
+}

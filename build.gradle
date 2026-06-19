@@ -1,0 +1,112 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        maven { url = 'https://maven.parchmentmc.org' }
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
+        classpath 'org.parchmentmc.librarian.forgegradle:org.parchmentmc.librarian.forgegradle.gradle.plugin:1.+'
+    }
+}
+
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
+
+version = "${mod_version}"
+group = "${mod_group_id}"
+archivesBaseName = "${mod_id}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'parchment', version: "${parchment_version}-${minecraft_version}"
+
+    copyIdeResources = true
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'debug'
+            property 'fml.earlyprogresswindow', 'false'
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('server')
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+repositories {
+    maven { url = 'https://maven.minecraftforge.net' }
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+    maven { url = 'https://maven.parchmentmc.org' }
+    mavenCentral()
+    flatDir {
+        dir 'libs'
+    }
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    implementation fg.deobf("blank:SpartanWeaponry:3.2.1")
+    implementation fg.deobf("blank:spartantoolkit:1.6.1")
+    implementation fg.deobf("blank:defiledlands:1.9")
+}
+
+jar {
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+    manifest {
+        attributes([
+                "Specification-Title"     : "defiledspartan",
+                "Specification-Vendor"    : "krelox",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${project.version}",
+                "Implementation-Vendor"   : "krelox",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')

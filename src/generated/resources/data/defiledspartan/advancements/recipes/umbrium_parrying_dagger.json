@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "defiledspartan:umbrium_parrying_dagger"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_umbrium": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:ingots/umbrium"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_umbrium",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "defiledspartan:umbrium_parrying_dagger"
+    ]
+  },
+  "sends_telemetry_event": true
+}

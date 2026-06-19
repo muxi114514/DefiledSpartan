@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "defiledspartan:scarlite_pike"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_scarlite": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "c:gems/scarlite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_scarlite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "defiledspartan:scarlite_pike"
+    ]
+  },
+  "sends_telemetry_event": true
+}

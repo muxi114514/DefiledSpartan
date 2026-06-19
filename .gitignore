@@ -1,0 +1,9 @@
+.gradle/
+build/
+run/
+server/
+*.refmap.json
+.idea/
+*.iml
+libs/*.jar
+.claude/
